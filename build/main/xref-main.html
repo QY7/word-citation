@@ -91,6 +91,7 @@ imports:
  &#8226;   <a href="#codeop">codeop</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#colorama">colorama</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#copy">copy</a>
  &#8226;   <a href="#copyreg">copyreg</a>
@@ -2151,7 +2152,8 @@ imported by:
   <a name="atexit"></a>
   <tt>atexit</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#logging">logging</a>
+    <a href="#colorama.initialise">colorama.initialise</a>
+ &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -3519,6 +3521,129 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="colorama"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/__init__.py" type="text/plain"><tt>colorama</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansi">colorama.ansi</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+ &#8226;   <a href="#colorama.initialise">colorama.initialise</a>
+ &#8226;   <a href="#colorama.win32">colorama.win32</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansi">colorama.ansi</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+ &#8226;   <a href="#colorama.initialise">colorama.initialise</a>
+ &#8226;   <a href="#colorama.win32">colorama.win32</a>
+ &#8226;   <a href="#colorama.winterm">colorama.winterm</a>
+ &#8226;   <a href="#main.py">main.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="colorama.ansi"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/ansi.py" type="text/plain"><tt>colorama.ansi</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#colorama">colorama</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="colorama.ansitowin32"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/ansitowin32.py" type="text/plain"><tt>colorama.ansitowin32</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansi">colorama.ansi</a>
+ &#8226;   <a href="#colorama.win32">colorama.win32</a>
+ &#8226;   <a href="#colorama.winterm">colorama.winterm</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.initialise">colorama.initialise</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="colorama.initialise"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/initialise.py" type="text/plain"><tt>colorama.initialise</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#atexit">atexit</a>
+ &#8226;   <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama">colorama</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="colorama.win32"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/win32.py" type="text/plain"><tt>colorama.win32</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+ &#8226;   <a href="#colorama.winterm">colorama.winterm</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="colorama.winterm"></a>
+  <a target="code" href="///E:/software/anaconda/lib/site-packages/colorama/winterm.py" type="text/plain"><tt>colorama.winterm</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#colorama">colorama</a>
+ &#8226;   <a href="#colorama.win32">colorama.win32</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="contextlib"></a>
   <a target="code" href="///E:/software/anaconda/lib/contextlib.py" type="text/plain"><tt>contextlib</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -3533,6 +3658,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#_threading_local">_threading_local</a>
+ &#8226;   <a href="#colorama.initialise">colorama.initialise</a>
  &#8226;   <a href="#cryptography.hazmat.backends.openssl.backend">cryptography.hazmat.backends.openssl.backend</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#importlib.util">importlib.util</a>
@@ -5236,6 +5362,7 @@ imported by:
 imports:
     <a href="#_ctypes">_ctypes</a>
  &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#struct">struct</a>
  &#8226;   <a href="#sys">sys</a>
@@ -5245,10 +5372,12 @@ imports:
 imported by:
     <a href="#asn1crypto._ffi">asn1crypto._ffi</a>
  &#8226;   <a href="#asn1crypto._perf._big_num_ctypes">asn1crypto._perf._big_num_ctypes</a>
+ &#8226;   <a href="#colorama.win32">colorama.win32</a>
  &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
  &#8226;   <a href="#ctypes._endian">ctypes._endian</a>
  &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
  &#8226;   <a href="#playsound">playsound</a>
  &#8226;   <a href="#win_inet_pton">win_inet_pton</a>
 
@@ -5387,6 +5516,23 @@ imports:
   <div class="import">
 imported by:
     <a href="#asn1crypto._perf._big_num_ctypes">asn1crypto._perf._big_num_ctypes</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="ctypes.wintypes"></a>
+  <a target="code" href="///E:/software/anaconda/lib/ctypes/wintypes.py" type="text/plain"><tt>ctypes.wintypes</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#ctypes">ctypes</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#colorama.win32">colorama.win32</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
 
   </div>
 
@@ -10170,6 +10316,7 @@ imported by:
  &#8226;   <a href="#bdb">bdb</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#certifi.core">certifi.core</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
  &#8226;   <a href="#cryptography.hazmat.primitives.ciphers.aead">cryptography.hazmat.primitives.ciphers.aead</a>
  &#8226;   <a href="#cryptography.x509.base">cryptography.x509.base</a>
  &#8226;   <a href="#ctypes">ctypes</a>
@@ -10732,6 +10879,7 @@ imported by:
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
  &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
  &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
  &#8226;   <a href="#ctypes.macholib.dylib">ctypes.macholib.dylib</a>
  &#8226;   <a href="#ctypes.macholib.framework">ctypes.macholib.framework</a>
@@ -11877,6 +12025,8 @@ imported by:
  &#8226;   <a href="#code">code</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#colorama.ansitowin32">colorama.ansitowin32</a>
+ &#8226;   <a href="#colorama.initialise">colorama.initialise</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#cryptography.hazmat.primitives.kdf.scrypt">cryptography.hazmat.primitives.kdf.scrypt</a>
  &#8226;   <a href="#cryptography.utils">cryptography.utils</a>

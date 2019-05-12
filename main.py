@@ -3,9 +3,11 @@ import urllib.request
 import requests,time
 from random import shuffle
 from playsound import playsound
+from colorama import init
+from colorama import Fore, Back, Style
 
 class youdao():
-    def __init__(self, type=0, word='hello'):
+    def __init__(self, type=0):
         '''
         调用youdao API
         type = 0：美音
@@ -14,10 +16,9 @@ class youdao():
         判断当前目录下是否存在两个语音库的目录
         如果不存在，创建
         '''
-        word = word.lower()  # 小写
         self._type = type  # 发音方式
-        self._word = word  # 单词
-
+        # self.list_path = 'word-citation\\word-list\\red book'
+        self.list_path = 'red book'
         # 文件根目录
         self._dirRoot = os.path.dirname(os.path.abspath(__file__))
         if 0 == self._type:
@@ -103,40 +104,84 @@ class youdao():
         else:
             # 不存在这个MP3，返回none
             return None
+    def cite_list(self,_word_list):
+        _wrong_list = []
+        for word in _word_list:
+            if(word == ''):
+                continue
+            self.down(word)
+            playsound(self._filePath)
+            input_str = input()
+            if(input_str==word):
+                pass
+            elif(input_str == 'exit'):
+                break
+            else:
+                print(Fore.RED+'>>Wrong<<'+Style.RESET_ALL)
+                _wrong_list.append([word,input_str])
+        
+        print()
+        print('---------------------------------')
+        print(f'{"Your answer":<15}  {"Correct answer":<15}')
+        print('---------------------------------')
+        if not _wrong_list:
+            print("You are the champion!!!") 
+        for item in _wrong_list:
+            print(f'{item[1]:<15}  {item[0]:<15}')
 
+        print('---------------------------------')
+        print(Fore.GREEN+"正确率:%.1f%%(%d/%d)"%((1-len(_wrong_list)/len(_word_list))*100, (len(_word_list)-len(_wrong_list)),len(_word_list))+Style.RESET_ALL)
+
+        return _wrong_list
+
+
+    def load_list(self,file):
+        if not os.path.exists(f'{self.list_path}\\{file}'):
+            print("No such file exists!")
+            return []
+        with open(f'{self.list_path}\\{file}','r') as f:
+            _contents = f.read().strip()
+            _contents = _contents.split('\n')
+            _contents = list(set(_contents))
+            _contents = list(filter(None, _contents)) # fastest
+            shuffle(_contents)
+            # _contents = filter(None, _contents)
+        return _contents
+
+    def save_wrong_list(self,id,_wrong_list):
+        with open(f'{self.list_path}\\list{id}_wrong.txt','a') as f:
+            for item in _wrong_list:
+                f.write(item[0])
+                f.write('\n')
 
 if __name__ == "__main__":
+    init()
     sp = youdao()
-    print('输入听写的list')
-    lst_id = input()
-    print('开始听写')
-    wrong_list = []
-
-    # 随机听写
-
-    with open(f'word-citation\\word-list\\red book\\list{lst_id}.txt','r') as f:
-        contents = f.read()
-        contents = contents.split('\n')
-        shuffle(contents)
-
-    for line in contents:
-        sp.down(line)
-        playsound(sp._filePath)
-        input_str = input()
-        if(input_str==line):
-            pass
-        elif(input_str == 'exit'):
+    while(1):
+        print(Fore.YELLOW + Back.BLUE+'**********************************************')
+        print('- insert number "i" to recite list_i          ')
+        print('- insert "r i" to review mistakes in list_i   ')
+        print('- insert "exit" to exit                       ')
+        # print('**********************************************')
+        print('**********************************************'+Style.RESET_ALL)
+        lst_id = input()
+        if(lst_id == 'exit'):
             break
+        elif(lst_id[0]=='r'):
+            lst_id = lst_id[1:].strip()
+            contents = sp.load_list(f'list{lst_id}_wrong.txt')
+            if not contents:
+                continue
+            print('Reviewing')
+            wrong_list = sp.cite_list(contents)
+            sp.save_wrong_list(lst_id,wrong_list)
         else:
-            print('>>Wrong<<')
-            wrong_list.append([line,input_str])
-        # time.sleep(9)
-    print('听写结果')
-    print('---------------------------------')
-    print(f'{"Your answer":<15}  {"Right answer":<15}')
-    print('---------------------------------')
-    for item in wrong_list:
-        print(f'{item[1]:<15}  {item[0]:<15}')
-    print('---------------------------------')
-    print("正确率:%.1f%%"%((1-len(wrong_list)/len(contents))*100))
-    os.system("pause")
+            lst_id = lst_id.strip()
+            
+            contents = sp.load_list(f'list{lst_id}.txt')
+            if not contents:
+                continue
+            print(Style.RESET_ALL+'Start citation')
+            wrong_list = sp.cite_list(contents)
+            sp.save_wrong_list(lst_id,wrong_list)
+        print()
